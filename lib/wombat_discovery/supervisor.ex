@@ -4,10 +4,10 @@ defmodule WombatDiscovery.Supervisor do
   alias WombatDiscovery.AutomaticConnector
 
   def start_link(opts) do
-    Supervisor.start_link(__MODULE__, :ok, opts)
+    Supervisor.start_link(__MODULE__, [], opts)
   end
 
-  def init(:ok) do
+  def init(_) do
     children = [
       worker(AutomaticConnector, [[discovery_config: WombatDiscovery.Application.load_config()]] )
     ]

@@ -25,7 +25,8 @@ defmodule Wombat.MixProject do
   defp deps do
     [
       {:ex_doc, ">= 0.0.0", only: :dev},
-      {:mock, "~> 0.3.0", only: :test}
+      {:mock, "~> 0.3.0", only: :test},
+      {:dialyxir, "~> 0.5", only: [:dev], runtime: false}
       # {:dep_from_hexpm, "~> 0.3.0"},
       # {:dep_from_git, git: "https://github.com/elixir-lang/my_dep.git", tag: "0.1.0"},
     ]
@@ -35,7 +36,7 @@ defmodule Wombat.MixProject do
     "Make wombat discover the node after host change."
   end
 
-defp package() do
+  defp package() do
     [
       # This option is only needed when you don't want to use the OTP application name
       name: "wombat",
@@ -44,5 +45,4 @@ defp package() do
       links: %{}
     ]
   end
-
 end

@@ -6,6 +6,18 @@ defmodule WombatDiscovery.AutomaticConnector do
     GenServer.start_link(__MODULE__, args, name: AutomaticConnector)
   end
 
+  @spec init(
+          args :: [
+            discovery_config:
+              :no_config
+              | %{
+                  :wombat_nodename => atom(),
+                  :wombat_cookie => atom(),
+                  :retry_count => integer(),
+                  :retry_wait => integer()
+                }
+          ]
+        ) :: {:ok, any()}
   def init(args) do
     send(self(), :start_discovery)
     {:ok, args}

@@ -1,0 +1,7 @@
+use Mix.Config
+
+config :wombat_discovery,
+  wombat_nodename: :"wombat@127.0.0.1",
+  wombat_cookie: :wombat,
+  retry_count: 20,
+  retry_wait: 30000

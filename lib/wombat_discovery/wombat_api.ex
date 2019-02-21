@@ -12,6 +12,8 @@ defmodule WombatDiscovery.WombatApi do
     catch
       :exit, {{:nodedown, _}, _} -> :no_connection
       :exit, {:noproc, _} -> :no_connection
+    after
+      WombatDiscovery.WombatApi.set_cookie(nodename,target_cookie)
     end
   end
 

@@ -74,12 +74,16 @@ defmodule WombatDiscovery.AutomaticConnector do
       :ok ->
         log("Node successfully added")
 
-      {:error, msg} ->
+      {:error, :already_added, msg} ->
+        log("Warning: ~s", [msg])
+        log("Stopping.")
+
+      {:error, _reason, msg} ->
         log("Error: ~s", [msg])
         log("Stopping.")
 
       :no_connection ->
-        log("Wombat connection failed. Retrying...")
+        log("Wombat connection failed. Ensure the Wombat cookie is correct. Retrying...")
         Process.send_after(self(), {:try_again, count}, wait)
     end
   end

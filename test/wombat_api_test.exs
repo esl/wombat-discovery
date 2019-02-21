@@ -50,6 +50,7 @@ defmodule WombatApiTest do
       }
     ]) do
       assert :no_connection = WombatApi.discover_me(:"wombat_test@127.0.0.1", :cookie)
+      assert 2 = :meck.num_calls(WombatApi, :set_cookie, :_)
     end
   end
 end

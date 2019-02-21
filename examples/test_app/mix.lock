@@ -1,0 +1,3 @@
+%{
+  "wombat_discovery": {:hex, :wombat_discovery, "1.0.0", "2b4a1a78d35a5845018b1be0073067fc84588c34e57f3f3e185975790a0f4075", [], [], "hexpm"},
+}

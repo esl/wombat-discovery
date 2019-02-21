@@ -6,6 +6,14 @@ defmodule WombatDiscovery.Application do
     Supervisor.start_link(name: Supervisor)
   end
 
+  @spec load_config() ::
+          :no_config
+          | %{
+              retry_count: integer(),
+              retry_wait: integer(),
+              wombat_cookie: atom(),
+              wombat_nodename: atom()
+            }
   def load_config() do
     sys_nodename = System.get_env("WOMBAT_NODENAME")
     sys_cookie = System.get_env("WOMBAT_COOKIE")

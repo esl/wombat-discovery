@@ -4,12 +4,13 @@ defmodule Wombat.MixProject do
   def project do
     [
       app: :wombat_discovery,
-      version: "0.1.0",
+      version: "1.0.0",
       elixir: "~> 1.6",
       start_permanent: Mix.env() == :prod,
       deps: deps(),
       description: description(),
-      package: package()
+      package: package(),
+      dialyzer: [flags: [:error_handling, :race_conditions, :underspecs]]
     ]
   end
 
@@ -39,9 +40,10 @@ defmodule Wombat.MixProject do
   defp package() do
     [
       # This option is only needed when you don't want to use the OTP application name
-      name: "wombat",
+      name: "wombat_discovery",
       # These are the default files included in the package
-      licenses: ["Apache 2.0"],
+      maintainers: ["Erlang Solutions Ltd"],
+      licenses: ["MIT"],
       links: %{}
     ]
   end

@@ -83,12 +83,16 @@ defmodule WombatDiscovery.AutomaticConnector do
         log("Stopping.")
 
       :no_connection ->
-        log("Wombat connection failed. Ensure the Wombat cookie is correct. Retrying...")
+        log(
+          "Wombat connection failed. Ensure the Wombat cookie is correct." <>
+            " If the node is already in Wombat, this may be OK. Retrying..."
+        )
+
         Process.send_after(self(), {:try_again, count}, wait)
     end
   end
 
   defp log(msg, fmt \\ []) do
-    :io.format("[WombatDiscovery] " <> msg <> "~n", fmt)
+    Logger.info(:io_lib.format("[WombatDiscovery] " <> msg, fmt))
   end
 end

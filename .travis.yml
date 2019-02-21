@@ -1,0 +1,4 @@
+language: elixir
+install: mix deps.get
+script:
+ - mix test --no-start

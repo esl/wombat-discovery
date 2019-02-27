@@ -1,21 +1,41 @@
-# Wombat
+# Wombat Discovery Plugin
 
-**TODO: Add description**
+This plugin is work in progress.
+
+## What is Wombat?
+
+Wombat is a monitoring tool for Erlang and Elixir based applications and products like RabbitMQ, Riak, Cowboy, MongooseIM. Read more on its website at https://www.erlang-solutions.com/products/wombatoam.html. It provides you with an on-premises monitoring solutions which collects many metrics from the BEAM VM and even custom metrics from the application.
+
+## Wombat Discovery Plugin
+
+As Wombat is installed near the application it is hard to orchestrate the discovery of containers or other dynamic applications. This plugin provides a way to automatically add the new node to Wombat. 
 
 ## Installation
 
-If [available in Hex](https://hex.pm/docs/publish), the package can be installed
-by adding `wombat` to your list of dependencies in `mix.exs`:
+This package only works on Elixir nodes. To use it just specify the dependency `wombat_discovery` in your mix file. 
 
 ```elixir
 def deps do
   [
-    {:wombat, "~> 0.1.0"}
+    {:wombat_discovery, "~> 1.0.0"}
   ]
 end
 ```
 
-Documentation can be generated with [ExDoc](https://github.com/elixir-lang/ex_doc)
-and published on [HexDocs](https://hexdocs.pm). Once published, the docs can
-be found at [https://hexdocs.pm/wombat](https://hexdocs.pm/wombat).
+## Usage
 
+The plugin can be configured multiple ways, the easiest way is to define two environment variables: 
+`WOMBAT_NODENAME` should be the Erlang nodename of Wombat, for example `wombat@static.host`. 
+`WOMBAT_COOKIE` should be the cookie of Wombat, by default it's `wombat`. 
+
+The other way is to configure the `wombat_discovery` application in the config.exs file, for example: 
+
+```elixir
+
+config :wombat_discovery,
+  wombat_nodename: :"wombat@static.host",
+  wombat_cookie: :wombat,
+  retry_count: 20,
+  retry_wait: 30000
+  
+  ```

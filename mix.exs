@@ -34,7 +34,7 @@ defmodule Wombat.MixProject do
   end
 
   defp description() do
-    "Make wombat discover the node after host change."
+    "Make wombat discover the node after host change. Visit our repository for more information: https://github.com/esl/wombat-discovery"
   end
 
   defp package() do

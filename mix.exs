@@ -10,7 +10,8 @@ defmodule Wombat.MixProject do
       deps: deps(),
       description: description(),
       package: package(),
-      dialyzer: [flags: [:error_handling, :race_conditions, :underspecs]]
+      dialyzer: [flags: [:error_handling, :race_conditions, :underspecs]],
+      docs: docs()
     ]
   end
 
@@ -28,8 +29,6 @@ defmodule Wombat.MixProject do
       {:ex_doc, ">= 0.0.0", only: :dev},
       {:mock, "~> 0.3.0", only: :test},
       {:dialyxir, "~> 0.5", only: [:dev], runtime: false}
-      # {:dep_from_hexpm, "~> 0.3.0"},
-      # {:dep_from_git, git: "https://github.com/elixir-lang/my_dep.git", tag: "0.1.0"},
     ]
   end
 
@@ -47,4 +46,17 @@ defmodule Wombat.MixProject do
       links: %{}
     ]
   end
+
+  defp docs do
+    [
+      main: "readme",
+      formatters: ["html"],
+      groups_for_modules: [],
+      extras: [
+        "README.md"
+      ],
+      groups_for_extras: [Honeybee: ~r/guides\/honeybee\/.?/]
+    ]
+  end
+
 end

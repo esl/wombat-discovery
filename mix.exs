@@ -4,7 +4,7 @@ defmodule Wombat.MixProject do
   def project do
     [
       app: :wombat_discovery,
-      version: "1.0.1",
+      version: "1.0.2",
       elixir: "~> 1.6",
       start_permanent: Mix.env() == :prod,
       deps: deps(),
@@ -54,8 +54,7 @@ defmodule Wombat.MixProject do
       groups_for_modules: [],
       extras: [
         "README.md"
-      ],
-      groups_for_extras: [Honeybee: ~r/guides\/honeybee\/.?/]
+      ]
     ]
   end
 

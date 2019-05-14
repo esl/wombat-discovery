@@ -2,7 +2,7 @@
 
 ## What is Wombat?
 
-Wombat is a monitoring tool for Erlang and Elixir based applications and products like RabbitMQ, Riak, Cowboy, MongooseIM. Read more on its website at https://www.erlang-solutions.com/products/wombatoam.html. It provides you with an on-premises monitoring solution which collects many metrics from the BEAM VM and even custom metrics from the application.
+Wombat is a monitoring tool for Erlang and Elixir based applications and products like RabbitMQ, Riak, Cowboy, MongooseIM. Read more on its website at [https://www.erlang-solutions.com/products/wombatoam.html](https://www.erlang-solutions.com/products/wombatoam.html). It provides you with an on-premises monitoring solution which collects many metrics from the BEAM VM and even custom metrics from the application.
 
 ## Wombat Discovery Plugin
 
@@ -15,7 +15,7 @@ This package only works on Elixir nodes. To use it just specify the dependency `
 ```elixir
 def deps do
   [
-    {:wombat_discovery, "~> 1.0.1"}
+    {:wombat_discovery, "~> 1.0.2"}
   ]
 end
 ```

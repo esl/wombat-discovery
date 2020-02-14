@@ -37,3 +37,12 @@ config :wombat_discovery,
   retry_wait: 30000
 
   ```
+## Running tests
+Using Makefile
+```
+make test
+  ```
+Or using command line
+```elixir
+mix test --no-start
+  ```

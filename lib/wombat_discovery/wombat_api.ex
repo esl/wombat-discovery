@@ -9,7 +9,7 @@ defmodule WombatDiscovery.WombatApi do
     target = {:wo_discover_dynamic_nodes, nodename}
 
     try do
-      GenServer.call(target, {:auto_discover_node, target_node, target_cookie}, @discover_timeout)
+      GenServer.call(target, {:auto_discover_node, target_node}, @discover_timeout)
     catch
       :exit, {{:nodedown, _}, _} -> :no_connection
       :exit, {:noproc, _} -> :no_connection
